@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME-FIT | ¡Entrena desde donde estés! - Estilo Chicha Peruano</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        chichaYellow: '#FFFF00',
+                        chichaGreen: '#00FF00',
+                        chichaOrange: '#FF6600',
+                        chichaPink: '#FF007F',
+                        chichaPurple: '#7B1FA2',
+                        chichaBlack: '#0a0a0a',
+                    },
+                    fontFamily: {
+                        chicha: ['"Bungee"', '"Alfa Slab One"', 'cursive'],
+                        chichaRound: ['"Fredoka"', 'sans-serif'],
+                        body: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts for Chicha Style Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bungee&family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body class="overflow-x-hidden">
+
+    <div class="fixed bottom-4 left-4 z-50 bg-slate-950 border-2 border-chichaYellow p-3 rounded-2xl shadow-2xl flex items-center gap-3">
+        <button id="playAudioBtn" onclick="toggleChichaAudio()" class="w-12 h-12 rounded-full bg-chichaPink text-chichaYellow font-black text-xl flex items-center justify-center border-2 border-black hover:scale-110 transition-transform">
+            <i class="fa-solid fa-play" id="audioIcon"></i>
+        </button>
+        <div>
+            <p class="text-[10px] font-black uppercase text-chichaGreen tracking-widest">RITMO CHICHA FIT 🎵</p>
+            <p class="text-xs font-bold text-white font-chichaRound" id="audioTitle">Cumbia Quema-Grasa (8-Bit)</p>
+        </div>
+        <audio id="chichaAudio" loop src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a731ef.mp3?filename=latin-cumbia-synth-10023.mp3"></audio>
+    </div>
+
+    <nav class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b-4 border-chichaYellow py-3">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+            <!-- LOGO -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="bg-chichaPink text-chichaYellow text-2xl font-black px-3 py-1 rounded-xl border-2 border-black rotate-[-3deg] group-hover:rotate-0 transition-transform">
+                    HF
+                </div>
+                <div>
+                    <span class="text-2xl sm:text-3xl font-black text-chicha-1 tracking-wider">HOME-FIT</span>
+                    <span class="block text-[10px] font-extrabold text-chichaYellow uppercase tracking-widest -mt-1">¡Entrena en Casa, Casero!</span>
+                </div>
+            </a>
+
+            <!-- NAV LINKS -->
+            <div class="hidden lg:flex items-center gap-6 font-chichaRound text-sm font-bold">
+                <a href="#calculadora" class="text-white hover:text-chichaYellow transition-colors">🔥 Calculadora Casera</a>
+                <a href="#retos" class="text-white hover:text-chichaYellow transition-colors">⚡ Retos Chicha</a>
+                <a href="#videos" class="text-white hover:text-chichaYellow transition-colors">📹 Videos en Vivo</a>
+                <a href="#planes" class="text-chichaYellow hover:underline">💰 Planes de Pago</a>
+                <a href="#testimonios" class="text-white hover:text-chichaYellow transition-colors">🗣️ Testimonios</a>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="flex items-center gap-3">
+                <button onclick="openModal('login')" class="px-4 py-2 rounded-xl border-2 border-chichaPink text-chichaPink font-bold text-xs uppercase hover:bg-chichaPink hover:text-black transition-all">
+                    Ingresar
+                </button>
+                <button onclick="openModal('register')" class="chicha-btn px-5 py-2 rounded-xl text-xs uppercase font-black">
+                    Crear Cuenta
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative py-16 lg:py-24 overflow-hidden sunburst-bg border-b-4 border-chichaPink">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- LEFT COLUMN: CARTEL HEADER -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                
+                <div class="inline-block bg-chichaPink border-2 border-black px-4 py-1.5 rounded-full rotate-[-2deg] shadow-lg">
+                    <span class="text-chichaYellow font-black text-xs uppercase tracking-widest">
+                        ¡PA' QUE LA ROMPAS ESTE VERANO, CAUSA! 🇵🇪
+                    </span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight">
+                    <span class="text-chicha-1 block">ENTRENA DESDE</span>
+                    <span class="text-chicha-2 block text-5xl sm:text-7xl lg:text-8xl">DONDE ESTÉS</span>
+                </h1>
+
+                <div class="bg-black/80 border-2 border-chichaGreen p-4 rounded-2xl max-w-xl mx-auto lg:mx-0 shadow-xl">
+                    <p class="text-chichaYellow font-chichaRound text-base sm:text-lg font-bold">
+                        "Sin máquinas caras ni excusas de flojo. Con rutinas caseras, cumbia fitness y los mejores consejos para sudar la gota gorda."
+                    </p>
+                </div>
+
+                <!-- CALL TO ACTIONS -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                    <a href="#planes" class="chicha-btn px-8 py-4 rounded-2xl text-center text-sm font-black tracking-wide">
+                        <i class="fa-solid fa-fire mr-2"></i> VER PLANES DESDE S/ 29
+                    </a>
+                    <a href="#calculadora" class="px-8 py-4 rounded-2xl bg-black border-4 border-chichaGreen text-chichaGreen font-chicha font-black text-xs uppercase tracking-wider text-center hover:bg-chichaGreen hover:text-black transition-all">
+                        <i class="fa-solid fa-calculator mr-2"></i> CALCULAR MI RUTINA
+                    </a>
+                </div>
+
+                <!-- PERUVIAN TRUST BADGES -->
+                <div class="pt-6 flex flex-wrap justify-center lg:justify-start gap-6 text-xs text-slate-300 font-bold">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-chichaGreen text-base"></i> +10,000 Caseros Entrenando
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-chichaGreen text-base"></i> Cero Máquinas Complejas
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-chichaGreen text-base"></i> Garantía 100% Peruana
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: CHICHA POSTER GRAPHIC CARD -->
+            <div class="lg:col-span-5">
+                <div class="chicha-card p-6 text-center space-y-4 rotate-[2deg] hover:rotate-0 transition-transform duration-300">
+                    <div class="bg-chichaPink text-chichaYellow font-chicha p-2 rounded-xl border-2 border-black text-xl">
+                        ¡SUPER RETO DEL MES!
+                    </div>
+
+                    <!-- HERO IMAGE -->
+                    <div class="relative rounded-xl overflow-hidden border-4 border-black">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="Entrenamiento en casa" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-2 right-2 bg-chichaYellow text-black font-black px-3 py-1 rounded-lg border-2 border-black text-xs">
+                            ¡A ROMPERLA!
+                        </div>
+                    </div>
+
+                    <div class="bg-black/90 p-4 rounded-xl border-2 border-chichaYellow text-left space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-chichaGreen font-bold text-xs uppercase">RETO 21 DÍAS</span>
+                            <span class="text-chichaPink font-black text-xs">¡INICIA HOY!</span>
+                        </div>
+                        <h3 class="text-lg font-black text-white font-chichaRound">Cumbia-Fit Quema Grasa</h3>
+                        <p class="text-xs text-slate-300">Rutinas intensivas de 25 minutos sin equipos. ¡Suda al ritmo de la chicha!</p>
+                    </div>
+
+                    <button onclick="openModal('register')" class="w-full chicha-btn py-3 rounded-xl text-xs uppercase font-black">
+                        ¡UNIRME AL RETO CASERO!
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="calculadora" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="bg-chichaGreen text-black font-black px-4 py-1 rounded-full text-xs uppercase border-2 border-black">
+                ¡HERRAMIENTA CASERA EXCLUSIVA!
+            </span>
+            <h2 class="text-4xl sm:text-5xl font-black text-chicha-1 mt-4">
+                CALCULADORA "FIT CASERO"
+            </h2>
+            <p class="text-slate-300 text-sm font-chichaRound mt-2">
+                Ingresa tus datos y te armamos tu rutina instantánea personalizada para sudar la gota gorda.
+            </p>
+        </div>
+
+        <div class="chicha-card p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- INPUT FORM -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <div>
+                    <label class="block text-chichaYellow font-bold text-xs uppercase mb-2">1. Tu Meta Principal, Casero:</label>
+                    <select id="calcGoal" class="w-full bg-slate-900 border-2 border-chichaPink text-white p-3 rounded-xl font-bold text-sm focus:outline-none focus:border-chichaYellow">
+                        <option value="bajar">🔥 Bajar la pancita / Quemar Grasa</option>
+                        <option value="tonificar">💪 Tonificar todo el cuerpo</option>
+                        <option value="musculo">🏋️ Ganar Masa Muscular en Casa</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-chichaYellow font-bold text-xs uppercase mb-2">2. Peso Actual (kg):</label>
+                        <input type="number" id="calcWeight" value="70" class="w-full bg-slate-900 border-2 border-chichaPink text-white p-3 rounded-xl font-bold text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-chichaYellow font-bold text-xs uppercase mb-2">3. Nivel de Entrenamiento:</label>
+                        <select id="calcLevel" class="w-full bg-slate-900 border-2 border-chichaPink text-white p-3 rounded-xl font-bold text-sm">
+                            <option value="1">Principiante (Desde Cero)</option>
+                            <option value="2">Intermedio (Le pongo ganas)</option>
+                            <option value="3">Avanzado (Soy una Fiera)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button onclick="calculateFitRoutine()" class="w-full chicha-btn py-4 rounded-xl text-xs uppercase font-black">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> OBTENER MI PLAN PERSONALIZADO
+                </button>
+            </div>
+
+            <!-- RESULT DISPLAY -->
+            <div class="lg:col-span-5 bg-black/90 border-4 border-chichaGreen p-6 rounded-2xl text-center space-y-4">
+                <span class="text-chichaGreen font-black text-xs uppercase tracking-widest block">RESULTADO PERSONALIZADO</span>
+                <div class="text-3xl font-black text-chichaYellow font-chicha" id="resTitle">
+                    PLAN QUEMA-GRASA EXPRÉS
+                </div>
+                
+                <div class="py-4 border-y border-slate-800 space-y-2 text-xs text-slate-200 text-left">
+                    <p>🔥 <strong class="text-chichaGreen">Calorías Diarias Recomendadas:</strong> <span id="resCalories" class="text-chichaYellow font-bold">2,100 kcal</span></p>
+                    <p>⏱️ <strong class="text-chichaGreen">Tiempo por Sesión:</strong> <span id="resTime" class="text-white font-bold">30 minutos / día</span></p>
+                    <p>🏋️ <strong class="text-chichaGreen">Enfoque de Ejercicio:</strong> <span id="resFocus" class="text-white font-bold">Cardio Hiit + Calistenia</span></p>
+                </div>
+
+                <p class="text-[11px] text-chichaPink font-bold italic" id="resPhrase">
+                    "¡Dale duro, causa! En 3 semanas verás los cambios."
+                </p>
+
+                <button onclick="openModal('register')" class="w-full py-3 bg-chichaPink text-chichaYellow border-2 border-black rounded-xl font-black text-xs uppercase hover:bg-chichaYellow hover:text-black transition-colors">
+                    ¡GUARDAR PLAN EN MI CUENTA!
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="planes" class="py-20 bg-black/60 border-y-4 border-chichaYellow relative">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-chichaPink text-chichaYellow font-black px-4 py-1.5 rounded-full text-xs uppercase border-2 border-black">
+                    ¡ELIGE TU PLAN Y SÚMATE!
+                </span>
+                <h2 class="text-4xl sm:text-6xl font-black text-chicha-2 mt-4">
+                    PLANES A TU MEDIDA
+                </h2>
+                <p class="text-slate-300 font-chichaRound text-sm mt-2">
+                    Precios accesibles para todo el Perú. Sin amarrarse, cancela cuando quieras.
+                </p>
+            </div>
+
+            <!-- 4 PRICING CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- PLAN 1: CASERO BASIQUITO -->
+                <div class="chicha-card p-6 flex flex-col justify-between hover:scale-105 transition-transform">
+                    <div>
+                        <span class="text-[10px] font-black uppercase text-chichaGreen bg-black px-2 py-1 rounded border border-chichaGreen">PLAN 1</span>
+                        <h3 class="text-2xl font-black text-chichaYellow font-chicha mt-2">CASERO BASIQUITO</h3>
+                        <p class="text-xs text-slate-300 mt-1">Para arrancar sin presión desde cero.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-4xl font-black text-white font-chicha">S/ 29</span>
+                            <span class="text-xs text-slate-400">/ mes</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-200 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaGreen"></i> Access a 30 Rutinas Básicas</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaGreen"></i> Guía Nutricional PDF</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaGreen"></i> Grupo de WhatsApp Motivacional</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openModal('register')" class="mt-8 w-full chicha-btn py-3 rounded-xl text-xs uppercase font-black">
+                        ELEGIR BASIQUITO
+                    </button>
+                </div>
+
+                <!-- PLAN 2: CAUSA FIT (POPULAR) -->
+                <div class="chicha-card-pink p-6 flex flex-col justify-between hover:scale-105 transition-transform relative">
+                    <div class="absolute -top-4 right-4 bg-chichaYellow text-black font-black text-[10px] uppercase px-3 py-1 rounded-full border-2 border-black">
+                        ¡EL MÁS PEDIDO!
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-black uppercase text-chichaYellow bg-black px-2 py-1 rounded border border-chichaYellow">PLAN 2</span>
+                        <h3 class="text-2xl font-black text-chichaYellow font-chicha mt-2">CAUSA FIT</h3>
+                        <p class="text-xs text-slate-200 mt-1">El equilibrio perfecto para ver resultados rápidos.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-4xl font-black text-chichaYellow font-chicha">S/ 59</span>
+                            <span class="text-xs text-slate-300">/ mes</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-100 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaYellow"></i> Todo lo del Plan Basiquito</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaYellow"></i> Acceso a Todos los Retos 21 Días</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaYellow"></i> Transmisiones en Vivo (3x/semana)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaYellow"></i> Playlist Cumbia-Fit Exclusiva</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openModal('register')" class="mt-8 w-full chicha-btn py-3 rounded-xl text-xs uppercase font-black">
+                        ¡SER CAUSA FIT!
+                    </button>
+                </div>
+
+                <!-- PLAN 3: SOBRINO PRO -->
+                <div class="chicha-card p-6 flex flex-col justify-between hover:scale-105 transition-transform">
+                    <div>
+                        <span class="text-[10px] font-black uppercase text-chichaGreen bg-black px-2 py-1 rounded border border-chichaGreen">PLAN 3</span>
+                        <h3 class="text-2xl font-black text-chichaYellow font-chicha mt-2">SOBRINO PRO</h3>
+                        <p class="text-xs text-slate-300 mt-1">Para los que van con todo a transformar su cuerpo.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-4xl font-black text-white font-chicha">S/ 89</span>
+                            <span class="text-xs text-slate-400">/ mes</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-200 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaGreen"></i> Todo lo del Plan Causa Fit</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaGreen"></i> Asesoría Nutricional Personalizada</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-chichaGreen"></i> Revisión de Técnica de Ejercicios</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openModal('register')" class="mt-8 w-full chicha-btn py-3 rounded-xl text-xs uppercase font-black">
+                        SER SOBRINO PRO
+                    </button>
+                </div>
+
+                <!-- PLAN 4: LEYENDA CHICHA VIP -->
+                <div class="chicha-card p-6 flex flex-col justify-between hover:scale-105 transition-transform border-chichaGreen">
+                    <div>
+                        <span class="text-[10px] font-black uppercase text-black bg-chichaGreen px-2 py-1 rounded">PLAN 4 VIP</span>
+                        <h3 class="text-2xl font-black text-chichaGreen font-chicha mt-2">LEYENDA CHICHA</h3>
+                        <p class="text-xs text-slate-300 mt-1">Atención personalizada VIP 1 a 1.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-4xl font-black text-chichaGreen font-chicha">S/ 129</span>
+                            <span class="text-xs text-slate-400">/ mes</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-200 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-star text-chichaYellow"></i> Coach Personal Directo por WhatsApp</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-star text-chichaYellow"></i> Plan de Alimentación 100% Peruano</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-star text-chichaYellow"></i> Acceso Vitalicio a Grabaciones</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openModal('register')" class="mt-8 w-full py-3 bg-chichaGreen text-black font-black text-xs uppercase rounded-xl border-2 border-black hover:bg-chichaYellow transition-colors">
+                        SER LEYENDA VIP
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="bg-chichaYellow text-black font-black px-4 py-1 rounded-full text-xs uppercase">
+                ¡MIRA CÓMO SE ENTRENA!
+            </span>
+            <h2 class="text-4xl sm:text-5xl font-black text-chicha-1 mt-4">
+                DEMOS EN VIVO
+            </h2>
+            <p class="text-slate-300 text-sm font-chichaRound mt-2">
+                Haz clic en cualquier clase de muestra para ver el entrenamiento interactivo.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- VIDEO CARD 1 -->
+            <div class="chicha-card p-4 space-y-3 group cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/inpok4MKVLM')">
+                <div class="relative rounded-xl overflow-hidden border-2 border-black">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Cardio Cumbia" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-chichaPink border-2 border-black text-chichaYellow flex items-center justify-center text-xl group-hover:scale-125 transition-transform">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-lg font-black text-chichaYellow font-chichaRound">Cardio Cumbia Quema Calorías</h3>
+                <p class="text-xs text-slate-300">20 min de sudor intenso al ritmo tropical.</p>
+            </div>
+
+            <!-- VIDEO CARD 2 -->
+            <div class="chicha-card p-4 space-y-3 group cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/ml6cT4AZdqI')">
+                <div class="relative rounded-xl overflow-hidden border-2 border-black">
+                    <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=600&q=80" alt="Piernas de Acero" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-chichaGreen border-2 border-black text-black flex items-center justify-center text-xl group-hover:scale-125 transition-transform">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-lg font-black text-chichaGreen font-chichaRound">Piernas de Acero Caseras</h3>
+                <p class="text-xs text-slate-300">Sentadillas y zancadas sin pesas.</p>
+            </div>
+
+            <!-- VIDEO CARD 3 -->
+            <div class="chicha-card p-4 space-y-3 group cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/ub36thA4y48')">
+                <div class="relative rounded-xl overflow-hidden border-2 border-black">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80" alt="Abdomen Plano" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-chichaYellow border-2 border-black text-black flex items-center justify-center text-xl group-hover:scale-125 transition-transform">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-lg font-black text-chichaYellow font-chichaRound">Abdomen Plano & Tonificado</h3>
+                <p class="text-xs text-slate-300">Rutina exprés de abs en 15 minutos.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="testimonios" class="py-20 bg-black/80 border-t-4 border-chichaPink">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-chichaGreen text-black font-black px-4 py-1 rounded-full text-xs uppercase">
+                    ¡CASEROS 100% SATISFECHOS!
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-black text-chicha-2 mt-4">
+                    TESTIMONIOS REALES
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="chicha-card p-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="w-12 h-12 rounded-full border-2 border-chichaYellow object-cover">
+                        <div>
+                            <h4 class="font-bold text-chichaYellow text-sm">Rosa M. (Arequipa)</h4>
+                            <span class="text-[10px] text-chichaGreen font-bold">Baja 8 kg en 2 meses</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-200 font-chichaRound">
+                        "¡Asu mare! Pensé que no iba a aguantar, pero las clases con música chicha me motivan un montón. Ya no me duele la espalda y la ropa me queda bacán."
+                    </p>
+                </div>
+
+                <div class="chicha-card p-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="w-12 h-12 rounded-full border-2 border-chichaPink object-cover">
+                        <div>
+                            <h4 class="font-bold text-chichaPink text-sm">Gonzalo T. (Lima)</h4>
+                            <span class="text-[10px] text-chichaYellow font-bold">Plan Causa Fit</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-200 font-chichaRound">
+                        "Entrenar desde mi sala sin tener que ir al gimnasio abarrotado es lo mejor. Los profes te exigen pero con buena onda. ¡Recomendadazo!"
+                    </p>
+                </div>
+
+                <div class="chicha-card p-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" class="w-12 h-12 rounded-full border-2 border-chichaGreen object-cover">
+                        <div>
+                            <h4 class="font-bold text-chichaGreen text-sm">Lucía P. (Trujillo)</h4>
+                            <span class="text-[10px] text-chichaPink font-bold">Reto 21 Días</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-200 font-chichaRound">
+                        "La calculadora de rutina le atinó exactamente a lo que necesitaba. Bajé la pancita y gané un montón de energía. ¡Con todo, caseros!"
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl sm:text-4xl font-black text-center text-chicha-1 mb-10">
+            PREGUNTAS FRECUENTES (FAQ)
+        </h2>
+
+        <div class="space-y-4">
+            <div class="chicha-card p-4">
+                <button onclick="toggleFAQ(1)" class="w-full text-left font-bold text-chichaYellow text-sm flex justify-between items-center">
+                    <span>¿Necesito comprar pesas o equipos para entrenar?</span>
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+                <div id="faq-1" class="hidden text-xs text-slate-300 mt-3 pt-3 border-t border-slate-800">
+                    ¡Para nada, casero! Todas las rutinas de Home-Fit están diseñadas para usar tu propio peso corporal o elementos sencillos de tu casa (como botellas de agua o sillas).
+                </div>
+            </div>
+
+            <div class="chicha-card p-4">
+                <button onclick="toggleFAQ(2)" class="w-full text-left font-bold text-chichaYellow text-sm flex justify-between items-center">
+                    <span>¿Cómo puedo pagar mis suscripciones?</span>
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+                <div id="faq-2" class="hidden text-xs text-slate-300 mt-3 pt-3 border-t border-slate-800">
+                    Aceptamos Yape, Plin, tarjetas de débito/crédito y transferencias bancarias de todo el Perú de forma 100% segura.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t-4 border-chichaYellow py-12 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <p class="font-chicha text-chichaYellow text-xl">HOME-FIT PERÚ</p>
+            <p class="font-chichaRound text-slate-300">"Entrena desde donde estés – Planes y Retos con Sabor Nacional"</p>
+            <p class="text-[10px] text-slate-500">© 2026 Home-Fit. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- AUTH MODAL -->
+    <div id="authModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="chicha-card p-6 max-w-md w-full relative">
+            <button onclick="closeModal()" class="absolute top-3 right-3 text-chichaYellow text-xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="modalTitle" class="text-2xl font-black text-chicha-1 text-center mb-6">CREAR CUENTA</h3>
+            <form onsubmit="handleAuth(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-chichaYellow mb-1">Tu Correo Electrónico:</label>
+                    <input type="email" required placeholder="ejemplo@gmail.com" class="w-full bg-slate-900 border-2 border-chichaPink p-3 rounded-xl text-xs text-white">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-chichaYellow mb-1">Contraseña:</label>
+                    <input type="password" required placeholder="******" class="w-full bg-slate-900 border-2 border-chichaPink p-3 rounded-xl text-xs text-white">
+                </div>
+                <button type="submit" class="w-full chicha-btn py-3 rounded-xl text-xs uppercase font-black mt-2">
+                    ¡ENTRAR A ENTRENAR!
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- VIDEO LIGHTBOX MODAL -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative max-w-3xl w-full">
+            <button onclick="closeVideoModal()" class="absolute -top-10 right-0 text-chichaYellow text-2xl font-black">
+                <i class="fa-solid fa-xmark"></i> CERRAR
+            </button>
+            <div class="aspect-video w-full rounded-2xl overflow-hidden border-4 border-chichaYellow">
+                <iframe id="youtubeIframe" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIVE TOAST NOTIFICATION -->
+    <div id="liveToast" class="fixed top-24 right-4 z-50 bg-black border-2 border-chichaGreen p-3 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-500 transform translate-x-full">
+        <div class="w-8 h-8 rounded-full bg-chichaGreen text-black flex items-center justify-center font-bold">
+            <i class="fa-solid fa-user-check text-xs"></i>
+        </div>
+        <div class="text-xs">
+            <p class="font-bold text-chichaYellow" id="toastUser">Carlos de Lima</p>
+            <p class="text-slate-300 text-[10px]" id="toastAction">¡Se acaba de inscribir al Plan Causa Fit!</p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Audio Player Toggle Logic
+        let isPlaying = false;
+        function toggleChichaAudio() {
+            const audio = document.getElementById('chichaAudio');
+            const icon = document.getElementById('audioIcon');
+            if (isPlaying) {
+                audio.pause();
+                icon.className = 'fa-solid fa-play';
+            } else {
+                audio.play().catch(e => console.log('Audio autoplay block'));
+                icon.className = 'fa-solid fa-pause';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 2. Interactive Calculator Routine Logic
+        function calculateFitRoutine() {
+            const goal = document.getElementById('calcGoal').value;
+            const weight = parseFloat(document.getElementById('calcWeight').value) || 70;
+            const level = document.getElementById('calcLevel').value;
+
+            let calories = 2000;
+            let time = "25 minutos";
+            let focus = "Full Body";
+            let phrase = "¡A sudar la gota gorda, casero!";
+
+            if (goal === 'bajar') {
+                calories = Math.round(weight * 25);
+                focus = "Cardio Cumbia HIIT + Core";
+                phrase = "¡Vas a quemar esa pancita en un toque!";
+            } else if (goal === 'tonificar') {
+                calories = Math.round(weight * 28);
+                focus = "Funcional con Pesa Casera";
+                phrase = "¡A endurecer los músculos con ganas!";
+            } else {
+                calories = Math.round(weight * 32);
+                focus = "Calistenia & Fuerza en Sala";
+                phrase = "¡Te vas a poner bien fuerte, sobrino!";
+            }
+
+            document.getElementById('resCalories').innerText = calories + " kcal";
+            document.getElementById('resTime').innerText = (level * 15) + " min / día";
+            document.getElementById('resFocus').innerText = focus;
+            document.getElementById('resPhrase').innerText = `"${phrase}"`;
+        }
+
+        // 3. Modal Handlers
+        function openModal(type) {
+            document.getElementById('authModal').classList.remove('hidden');
+            document.getElementById('modalTitle').innerText = type === 'login' ? 'INICIAR SESIÓN' : 'CREAR CUENTA CASERO';
+        }
+
+        function closeModal() {
+            document.getElementById('authModal').classList.add('hidden');
+        }
+
+        function handleAuth(e) {
+            e.preventDefault();
+            alert("¡Bienvenido a Home-Fit, casero! Tu cuenta ha sido registrada con éxito.");
+            closeModal();
+        }
+
+        // 4. Video Lightbox
+        function openVideoModal(url) {
+            document.getElementById('youtubeIframe').src = url + "?autoplay=1";
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('youtubeIframe').src = "";
+            document.getElementById('videoModal').classList.add('hidden');
+        }
+
+        // 5. FAQ Accordion
+        function toggleFAQ(id) {
+            const el = document.getElementById(`faq-${id}`);
+            el.classList.toggle('hidden');
+        }
+
+        // 6. Real-time Live Social Proof Notifications
+        const peruvianUsers = ["Juan de Trujillo", "María de Arequipa", "Percy de Cusco", "Fiorella de Huancayo", "Renzo de Callao"];
+        const peruvianActions = ["se unió al Reto 21 Días", "compró el Plan Causa Fit", "completó su rutina de Cumbia-Fit"];
+
+        setInterval(() => {
+            const toast = document.getElementById('liveToast');
+            const randomUser = peruvianUsers[Math.floor(Math.random() * peruvianUsers.length)];
+            const randomAction = peruvianActions[Math.floor(Math.random() * peruvianActions.length)];
+
+            document.getElementById('toastUser').innerText = randomUser;
+            document.getElementById('toastAction').innerText = "¡" + randomAction + "!";
+
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 4000);
+        }, 12000);
+    </script>
+</body>
+</html>
